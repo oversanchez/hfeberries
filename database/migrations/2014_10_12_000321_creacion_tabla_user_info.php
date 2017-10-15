@@ -21,7 +21,7 @@ class CreacionTablaUserInfo extends Migration
 
             $table->enum('tipo',['AD','TR','AL','PA']);
             $table->string('clave');
-            $table->integer('persona_id')->nullable();
+
             $table->boolean('cambia_clave')->default(true);
             $table->boolean('activo')->default(false);
 
