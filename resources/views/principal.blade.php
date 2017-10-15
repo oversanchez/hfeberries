@@ -159,13 +159,15 @@
                                 <button data-position="left" data-step="1" data-intro="&lt;strong&gt;Para iniciar&lt;/strong&gt; " data-modal="configurarPlanilla" style="margin-top: -2px;" class="btn btn-default btn-flat md-trigger" data-toggle="tooltip"
                                         title="Crear una nueva planilla"><i class="fa fa-plus"></i></button>
 
-                                <button style="margin-top: -2px;" class="btn btn-default btn-flat md-trigger" data-toggle="tooltip" title="Configurar planilla seleccionada"><i class="fa fa-wrench"></i></button>
+                                <button data-position="left" data-step="2" data-intro="&lt;strong&gt;Para visualizar la planilla seleccionada&lt;/strong&gt; "  style="margin-top: -2px;" class="btn btn-default btn-flat md-trigger" data-toggle="tooltip" title="Configurar planilla seleccionada"><i class="fa fa-wrench"></i></button>
+
+                                <button data-position="left" data-step="4" data-intro="&lt;strong&gt;Para actualizar porcentajes AFP&lt;/strong&gt; "  style="margin-top: -2px;" class="btn btn-default btn-flat md-trigger" data-toggle="tooltip" title="Configurar planilla seleccionada"><i class="fa fa-percent"></i></button>
                             </div>
                         </div>
                         <div class="content">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="table" id="dvPlanilla" style="height:330px;">
+                                    <div data-position="left" data-step="3" data-intro="&lt;strong&gt;Para ver los empleados en la planilla&lt;/strong&gt; "  class="table" id="dvPlanilla" style="height:330px;">
                                         <table class="table table-bordered" id="tblPlanilla" style="line-height: 16px;">
                                             <thead>
                                             <tr>
@@ -178,11 +180,11 @@
                                             </thead>
                                             <tbody>
                                             <tr class="odd gradeX">
-                                                <td>Trident</td>
+                                                <td>Ejemplo</td>
                                                 <td>Internet Explorer 4.0</td>
                                                 <td>Win 95+</td>
                                                 <td class="center"> 4</td>
-                                                <td class="center">X</td>
+                                                <td title="Último valor: S/. 35" class="center">40</td>
                                             </tr>
                                             <tr class="even gradeC">
                                                 <td>Trident</td>
