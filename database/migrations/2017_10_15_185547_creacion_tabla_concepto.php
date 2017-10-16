@@ -20,8 +20,6 @@ class CreacionTablaConcepto extends Migration
             $table->string('descripcion',130);
             $table->enum('tipo',['I','D','A']);
             $table->enum('columna_boleta',['I','D','A']);
-            $table->string('descripcion',130);
-            enum('tipo',['I','D','A']);
             $table->timestamps();
         });
     }

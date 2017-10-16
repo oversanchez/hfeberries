@@ -15,6 +15,8 @@ class CreacionTablaTipoMovimiento extends Migration
     {
         Schema::create('tipo_movimiento', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('codigo',2);
+            $table->string('nombre',50);
             $table->timestamps();
         });
     }
