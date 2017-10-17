@@ -21,12 +21,13 @@ class CreacionTablaMovimiento extends Migration
             $table->integer('tipo_movimiento_id')->unsigned();
             $table->foreign('tipo_movimiento_id')->references('id')->on('tipo_movimiento')->onDelete('cascade');
 
-            $table->boolean('afecta_senati')->default(false);
-            $table->boolean('afecta_sctr')->default(false);
-            $table->boolean('afecta_snp')->default(false);
-            $table->boolean('afecta_spp')->default(false);
-            $table->boolean('afecta_renta_quinta')->default(false);
-            $table->boolean('afecta_essalud_pens')->default(false);
+            $table->boolean('afecta_essalud_tra')->default(false)->nullable();
+            $table->boolean('afecta_senati')->default(false)->nullable();
+            $table->boolean('afecta_sctr')->default(false)->nullable();
+            $table->boolean('afecta_snp')->default(false)->nullable();
+            $table->boolean('afecta_spp')->default(false)->nullable();
+            $table->boolean('afecta_renta_quinta')->default(false)->nullable();
+            $table->boolean('afecta_essalud_pens')->default(false)->nullable();
 
             $table->timestamps();
         });

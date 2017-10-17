@@ -662,6 +662,8 @@
 {!! HTML::script('assets/lib/jquery.parsley/src/extra/dateiso.js') !!}
 {!! HTML::script('assets/lib/jquery.icheck/icheck.min.js') !!}
 {!! HTML::script('assets/lib/intro.js/intro.js') !!}
+{!! HTML::script('assets/lib/editable-table-master/mindmup-editabletable.js') !!}
+{!! HTML::script('assets/lib/editable-table-master/numeric-input-example.js') !!}
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -697,6 +699,7 @@
                 $dataTableWrapper.find(".dataTables_scrollBody").height(height - 24);
 
                 $dataTable._fnScrollDraw();
+                $table.editableTableWidget({ editor: $('<input>'), preventColumns: [ 1] });
             }
         });
 

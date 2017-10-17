@@ -66,7 +66,16 @@ return [
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
-
+        'sqlsrv' => [
+            'driver' => 'sqlsrv',
+            'host' => env('DB_HOST', 'localhost'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'port' => env('DB_PORT', '1433'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+        ]
     ],
 
     /*
