@@ -19,7 +19,7 @@ var factory = function( $, DataTable ) {
 /* Set the defaults for DataTables initialisation */
 $.extend( true, DataTable.defaults, {
 	dom:
-		"<'row'<'col-sm-6'l><'col-sm-6'f>>" +
+		"<'row'<'col-sm-2'l><'col-sm-10'f>>" +
 		"<'row'<'col-sm-12'tr>>" +
 		"<'row'<'col-sm-5'i><'col-sm-7'p>>",
 	renderer: 'bootstrap'
@@ -29,8 +29,8 @@ $.extend( true, DataTable.defaults, {
 /* Default class modification */
 $.extend( DataTable.ext.classes, {
 	sWrapper:      "dataTables_wrapper form-inline dt-bootstrap",
-	sFilterInput:  "form-control input-sm",
-	sLengthSelect: "form-control input-sm"
+	sFilterInput:  "form-control input-xs",
+	sLengthSelect: "form-control input-xs"
 } );
 
 
@@ -157,7 +157,7 @@ if ( DataTable.TableTools ) {
 	$.extend( true, DataTable.TableTools.classes, {
 		"container": "DTTT btn-group",
 		"buttons": {
-			"normal": "btn btn-default",
+			"normal": "btn btn-default btn-flat",
 			"disabled": "disabled"
 		},
 		"collection": {

@@ -39,12 +39,12 @@ $.fn.editableTableWidget = function (options) {
 					originalContent;
 				if (active.text() === text || editor.hasClass('error')) {
 					return true;
-				}
+				}				
 				originalContent = active.html();
 				active.text(text).trigger(evt, text);
 				if (evt.result === false) {
 					active.html(originalContent);
-				}
+				}				
 			},
 			movement = function (element, keycode) {
 				if (keycode === ARROW_RIGHT) {
@@ -68,6 +68,7 @@ $.fn.editableTableWidget = function (options) {
 				active.focus();
 				e.preventDefault();
 				e.stopPropagation();
+				active.parent().next().children().eq(active.index()).focus();				
 			} else if (e.which === ESC) {
 				editor.val(active.text());
 				e.preventDefault();
@@ -115,6 +116,8 @@ $.fn.editableTableWidget = function (options) {
 			}
 		});
 
+		
+		
 		element.find('td').prop('tabindex', 1);
 
 		$(window).on('resize', function () {
