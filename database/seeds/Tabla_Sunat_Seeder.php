@@ -25,6 +25,48 @@ class Tabla_Sunat_Seeder extends Seeder
             ['codigo'=>'20','nombre'=>'RÉGIMEN LABORAL PÚBLICO']
         ]);
 
+        DB::table('tipo_contrato')->insert([
+            ['codigo'=>'1','nombre'=>'A PLAZO INDETERMINADO - D.LEG. 728','abreviatura'=>'A PLAZO INDET - D.LEG. 728'],
+            ['codigo'=>'2','nombre'=>'A TIEMPO PARCIAL','abreviatura'=>'A TIEMPO PARCIAL'],
+            ['codigo'=>'3','nombre'=>'POR INICIO O INCREMENTO DE ACTIVIDAD','abreviatura'=>'POR INICIO O INCREM DE ACTIV'],
+            ['codigo'=>'4','nombre'=>'POR NECESIDADES DEL MERCADO','abreviatura'=>'POR NECES DEL MERCADO'],
+            ['codigo'=>'5','nombre'=>'POR RECONVERSIÓN EMPRESARIAL','abreviatura'=>'POR RECONV EMPRESARIAL'],
+            ['codigo'=>'6','nombre'=>'OCASIONAL','abreviatura'=>'OCASIONAL'],
+            ['codigo'=>'7','nombre'=>'DE SUPLENCIA','abreviatura'=>'DE SUPLENCIA'],
+            ['codigo'=>'8','nombre'=>'DE EMERGENCIA','abreviatura'=>'DE EMERGENCIA'],
+            ['codigo'=>'9','nombre'=>'PARA OBRA DETERMINADA O SERVICIO ESPECÍFICO','abreviatura'=>'OBRA DETERM O SERV ESPEC'],
+            ['codigo'=>'10','nombre'=>'INTERMITENTE','abreviatura'=>'INTERMITENTE'],
+            ['codigo'=>'11','nombre'=>'DE TEMPORADA','abreviatura'=>'DE TEMPORADA'],
+            ['codigo'=>'12','nombre'=>'DE EXPORTACIÓN NO TRADICIONAL D.LEY 22342','abreviatura'=>'DE EXPORT. NO TRADIC.'],
+            ['codigo'=>'13','nombre'=>'DE EXTRANJERO - D.LEG.689','abreviatura'=>'DE EXTRANJERO - D.LEG. 689'],
+            ['codigo'=>'14','nombre'=>'ADMINISTRATIVO DE SERVICIOS - D.LEG 1057 (1)','abreviatura'=>'CAS  - D.LEG 1057'],
+            ['codigo'=>'15','nombre'=>'NOMBRADO - D.LEG. N.° 276 (1)','abreviatura'=>'NOMBRADO - D.LEG. N.° 276 (1)'],
+            ['codigo'=>'16','nombre'=>'SERVICIOS PERSONALES  - APLICABLES A LOS REGÍM. DE CARRERA (1)','abreviatura'=>'SERV. PERS  - REGÍM. DE CARRERA (1)'],
+            ['codigo'=>'17','nombre'=>'GERENTE PÚBLICO - D.LEG. 1024 (1)','abreviatura'=>'GERENTE PÚBLICO - DL 1024'],
+            ['codigo'=>'18','nombre'=>'A DOMICILIO','abreviatura'=>'A DOMICILIO'],
+            ['codigo'=>'19','nombre'=>'FUTBOLISTAS PROFESIONALES','abreviatura'=>'FUTBOLISTAS PROFESIONALES'],
+            ['codigo'=>'20','nombre'=>'AGRARIO - LEY 27360','abreviatura'=>'AGRARIO - LEY 27360'],
+            ['codigo'=>'21','nombre'=>'MIGRANTE ANDINO DECISIÓN 545','abreviatura'=>'MIGRANTE ANDINO '],
+            ['codigo'=>'99','nombre'=>'OTROS NO PREVISTOS','abreviatura'=>'OTROS NO PREVISTOS']
+
+        ]);
+
+        DB::table('regimen_pensionario')->insert([
+            ['codigo'=>'2','nombre'=>'DECRETO LEY 19990 - SISTEMA NACIONAL DE PENSIONES - ONP','abreviatura'=>'DL 19990 - SIST NAC DE PENS - ONP','sector_privado'=>true,'sector_publico'=>true,'otra_entidad'=>true],
+            ['codigo'=>'3','nombre'=>'DECRETO LEY 20530 ','abreviatura'=>'DECRETO LEY 20530','sector_privado'=>false,'sector_publico'=>true,'otra_entidad'=>true],
+            ['codigo'=>'9','nombre'=>'CAJA DE BENEFICIOS DE SEGURIDAD SOCIAL DEL PESCADOR','abreviatura'=>'CBSSP','sector_privado'=>true,'sector_publico'=>false,'otra_entidad'=>true],
+            ['codigo'=>'10','nombre'=>'CAJA DE PENSIONES MILITAR ','abreviatura'=>'CAJA DE PENSIONES MILITAR ','sector_privado'=>false,'sector_publico'=>true,'otra_entidad'=>false],
+            ['codigo'=>'11','nombre'=>'CAJA DE PENSIONES POLICIAL','abreviatura'=>'CAJA DE PENSIONES POLICIAL','sector_privado'=>false,'sector_publico'=>true,'otra_entidad'=>false],
+            ['codigo'=>'12','nombre'=>'OTROS REGIMENES PENSIONARIOS (1)','abreviatura'=>'OTROS REGIMENES PENSIONARIOS','sector_privado'=>true,'sector_publico'=>true,'otra_entidad'=>true],
+            ['codigo'=>'13','nombre'=>'RÉGIMEN DEL SERVICIO DIPLOMÁTICO DE LA REPÚBLICA ','abreviatura'=>'REGIMEN DEL SDR ','sector_privado'=>false,'sector_publico'=>true,'otra_entidad'=>true],
+            ['codigo'=>'21','nombre'=>'SPP INTEGRA','abreviatura'=>'SPP INTEGRA','sector_privado'=>true,'sector_publico'=>true,'otra_entidad'=>true],
+            ['codigo'=>'22','nombre'=>'SPP HORIZONTE','abreviatura'=>'SPP HORIZONTE','sector_privado'=>true,'sector_publico'=>true,'otra_entidad'=>true],
+            ['codigo'=>'23','nombre'=>'SPP PROFUTURO','abreviatura'=>'SPP PROFUTURO','sector_privado'=>true,'sector_publico'=>true,'otra_entidad'=>true],
+            ['codigo'=>'24','nombre'=>'SPP PRIMA','abreviatura'=>'SPP PRIMA','sector_privado'=>true,'sector_publico'=>true,'otra_entidad'=>true],
+            ['codigo'=>'25','nombre'=>'SPP HABITAT','abreviatura'=>'SPP HABITAT','sector_privado'=>true,'sector_publico'=>true,'otra_entidad'=>true],
+            ['codigo'=>'99','nombre'=>'SIN REGIMEN PENSIONARIO','abreviatura'=>'SIN REGIMEN PENSIONARIO','sector_privado'=>true,'sector_publico'=>true,'otra_entidad'=>true]
+        ]);
+
         DB::table('movimiento')->insert([
             ['codigo'=>'0101','nombre'=>'ALIMENTACIÓN PRINCIPAL EN DINERO','tipo_movimiento_id'=>1,'afecta_essalud_tra'=>true,'afecta_senati'=>true,'afecta_sctr'=>true,'afecta_snp'=>true,'afecta_spp'=>true,'afecta_renta_quinta'=>true,'afecta_essalud_pens'=>false],
             ['codigo'=>'0102','nombre'=>'ALIMENTACIÓN PRINCIPAL EN ESPECIE','tipo_movimiento_id'=>1,'afecta_essalud_tra'=>true,'afecta_senati'=>true,'afecta_sctr'=>true,'afecta_snp'=>true,'afecta_spp'=>true,'afecta_renta_quinta'=>true,'afecta_essalud_pens'=>false],
