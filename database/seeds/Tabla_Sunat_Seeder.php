@@ -257,6 +257,29 @@ class Tabla_Sunat_Seeder extends Seeder
 
         ]);
 
+        DB::table('motivo_baja')->insert([
+            ['codigo'=>'01','nombre'=>'RENUNCIA','abreviatura'=>'RENUNCIA'],
+            ['codigo'=>'02','nombre'=>'RENUNCIA CON INCENTIVOS','abreviatura'=>'RENUNCIA CON INCENTIVOS'],
+            ['codigo'=>'03','nombre'=>'DESPIDO O DESTITUCIÓN','abreviatura'=>'DESPIDO O DESTITUCIÓN'],
+            ['codigo'=>'04','nombre'=>'CESE COLECTIVO','abreviatura'=>'CESE COLECTIVO'],
+            ['codigo'=>'05','nombre'=>'JUBILACIÓN','abreviatura'=>'JUBILACIÓN'],
+            ['codigo'=>'06','nombre'=>'INVALIDEZ ABSOLUTA PERMANENTE','abreviatura'=>'INVALIDEZ ABSOLUTA PERMAN'],
+            ['codigo'=>'07','nombre'=>'TERMINACIÓN DE LA OBRA O SERVICIO, CUMPLIMIENTO CONDICIÓN RESOLUTORIA O VENCIMIENTO DEL PLAZO','abreviatura'=>'TERMIN OBRA/SERV, CUMPLIM CONDIC RESOL. O VENC PLAZO'],
+            ['codigo'=>'08','nombre'=>'MUTUO DISENSO','abreviatura'=>'MUTUO DISENSO'],
+            ['codigo'=>'09','nombre'=>'FALLECIMIENTO','abreviatura'=>'FALLECIMIENTO'],
+            ['codigo'=>'10','nombre'=>'SUSPENSIÓN DE LA PENSIÓN (1)','abreviatura'=>'SUSPENSIÓN DE LA PENSIÓN'],
+            ['codigo'=>'11','nombre'=>'REASIGNACIÓN SERVIDOR DE LA ADMINISTRACIÓN PÚBLICA(2)','abreviatura'=>'REASIGNACIÓN'],
+            ['codigo'=>'12','nombre'=>'PERMUTA SERVIDOR DE LA ADMINISTRACIÓN PÚBLICA (2)','abreviatura'=>'PERMUTA'],
+            ['codigo'=>'13','nombre'=>'TRANSFERENCIA SERVIDOR DE LA ADMINISTRACIÓN PÚBLICA (2)','abreviatura'=>'TRANSFERENCIA'],
+            ['codigo'=>'14','nombre'=>'BAJA POR SUCESIÓN EN POSICIÓN DEL EMPLEADOR','abreviatura'=>'BAJA POR SUC. EN POSIC DEL EMPLEADOR'],
+            ['codigo'=>'15','nombre'=>'EXTINCIÓN O LIQUIDACIÓN DEL EMPLEADOR','abreviatura'=>'EXTINCIÓN O LIQUID. DEL EMPLEADOR'],
+            ['codigo'=>'16','nombre'=>'OTROS MOTIVOS DE CADUCIDAD DE LA PENSIÓN (1)','abreviatura'=>'OTR MOTIV CADUC PENSIÓN '],
+            ['codigo'=>'17','nombre'=>'NO SE INICIÓ LA RELACIÓN LABORAL O PRESTACIÓN EFECTIVA DE SERVICIOS','abreviatura'=>'NO SE INICIÓ LA REL.  LABORAL O PREST. DE SERVICIOS'],
+            ['codigo'=>'18','nombre'=>'LÍMITE DE EDAD 70 AÑOS ','abreviatura'=>'LÍMITE DE EDAD 70 AÑOS '],
+            ['codigo'=>'19','nombre'=>'OTRAS CAUSALES RÉGIMEN PÚBLICO GENERAL SERVICIO CIVIL - LEY 30057','abreviatura'=>'OTRAS CAUSALES – LEY 30057'],
+            ['codigo'=>'20','nombre'=>'INHABILITACIÓN PARA EL EJERCICIO PROFESIONAL O DE LA FUNCIÓN PÚBLICA POR MÁS DE TRES MESES - LEY 30057','abreviatura'=>'INHAB. PARA EJER.PROF. O FUNC.PUB. MÁS DE 3 MESES LEY 30057'],
+            ['codigo'=>'99','nombre'=>'SIN VÍNCULO LABORAL - HABILITADO PARA PDT PLAME','abreviatura'=>'SVL -HABILITADO PARA PDT PLAME (3)']
+        ]);
 
     }
 }

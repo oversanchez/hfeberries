@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreacionTablaTrabajador extends Migration
+class CreacionTablaMotivoBaja extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreacionTablaTrabajador extends Migration
      */
     public function up()
     {
-        Schema::create('trabajador', function (Blueprint $table) {
+        Schema::create('motivo_baja', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre',100);
-            $table->string('paterno',80);
-            $table->string('materno',80);
-            $table->string('numero_documento',15);
-
+            $table->string('codigo');
+            $table->string('nombre');
+            $table->string('abreviatura');
+            $table->boolean('vigencia')->default(true);
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreacionTablaTrabajador extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trabajador');
+        Schema::dropIfExists('motivo_baja');
     }
 }

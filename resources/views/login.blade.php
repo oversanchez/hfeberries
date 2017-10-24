@@ -82,7 +82,7 @@
                 },
                 success: function(data){
                     localStorage.setItem('jwt_token', data["token"]);
-                    window.location = "principal?token="+data["token"];
+                    window.location = "planilla?token="+data["token"];
                 },
                 complete : function(){
                     $("#loading").hide();

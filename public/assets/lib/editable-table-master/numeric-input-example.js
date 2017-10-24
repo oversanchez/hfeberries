@@ -13,7 +13,7 @@ $.fn.numericInputExample = function () {
 					var row = $(this);
 					total += parseFloat(row.children().eq(column).text());
 				});
-				footer.children().eq(column).text(total);
+				footer.children().eq(column).text(total.toFixed(2));
 			};
 		};
 	element.find('td').on('change', function (evt) {
@@ -27,6 +27,7 @@ $.fn.numericInputExample = function () {
 			var row = $(this);
 			total += parseFloat(row.children().eq(column).text());
 		});
+		/*
 		if (column === 1 && total > 5000) {
 			$('.alert').show();
 			return false; // changes can be rejected
@@ -34,13 +35,15 @@ $.fn.numericInputExample = function () {
 			$('.alert').hide();
 			footer.children().eq(column).text(total);
 		}
+		*/
+		footer.children().eq(column).text(total.toFixed(2));
 	}).on('validate', function (evt, value) {
 		var cell = $(this),
 			column = cell.index();
 		if (column === 0) {
 			return !!value && value.trim().length > 0;
 		} else {
-			return !isNaN(parseFloat(value)) && isFinite(value);
+			return !isNaN(parseFloat(value).toFixed(2)) && isFinite(value);
 		}
 	});
 	initialTotal();

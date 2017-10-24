@@ -25,8 +25,8 @@ Route::post('/logout',[
     'uses' => 'ApiAuthController@logout', 'as' => 'logout'
 ])->middleware('jwt.auth');
 
-Route::get('/principal', function (Request $request) {
-    return view('principal',['token'=>$request->input('token')]);
+Route::get('/planilla', function (Request $request) {
+    return view('planilla',['token'=>$request->input('token')]);
 })->middleware('jwt.auth');
 
 Route::get('/galeria', ['uses' => 'Album_Controller@ver_galeria', 'as' => 'album.ver_galeria']);

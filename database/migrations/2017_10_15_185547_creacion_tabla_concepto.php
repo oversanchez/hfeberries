@@ -20,6 +20,13 @@ class CreacionTablaConcepto extends Migration
             $table->string('descripcion',130);
             $table->enum('tipo',['I','D','A']);
             $table->enum('columna_boleta',['I','D','A']);
+            $table->integer('orden')->default(-1);
+            $table->boolean('afecta_remuneracion_computable');
+            $table->boolean('renta_quinta_fijo');
+            $table->boolean('afecta_plame');
+
+            $table->integer('movimiento_id')->unsigned()->nullable();
+            $table->foreign('movimiento_id')->references('id')->on('movimiento');
             $table->timestamps();
         });
     }
