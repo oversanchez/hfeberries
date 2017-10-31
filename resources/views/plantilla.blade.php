@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/img/favicon.png">
-    <title>Sistema de Planillas</title>
+    <title>Adriana</title>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800" rel="stylesheet"
           type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Raleway:300,200,100" rel="stylesheet" type="text/css">
@@ -34,7 +34,7 @@
         <div class="navbar-header">
             <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span
                         class="fa fa-gear"></span></button>
-            <a href="#" class="navbar-brand"><span>Sistema de Planillas</span></a>
+            <a href="#" class="navbar-brand"><span>Adriana</span></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">

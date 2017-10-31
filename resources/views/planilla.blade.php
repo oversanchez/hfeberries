@@ -4,11 +4,11 @@
     <style>
         .rotate {
             position: absolute;
-            -webkit-transform: rotate(-61deg);
-            -moz-transform: rotate(-61deg);
-            -ms-transform: rotate(-61deg);
-            -o-transform: rotate(-61deg);
-            transform: rotate(-61deg);
+            -webkit-transform: rotate(-59deg);
+            -moz-transform: rotate(-59deg);
+            -ms-transform: rotate(-59deg);
+            -o-transform: rotate(-59deg);
+            transform: rotate(-59deg);
             -webkit-transform-origin: 0 0;
             -moz-transform-origin: 0 0;
             -ms-transform-origin: 0 0;
@@ -16,11 +16,12 @@
             transform-origin: 0 0;
             filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
             border-bottom: solid thin #ded0d0;
-            height: 42px;
-            margin-left: 4px;
-            margin-top: -12px;
+            height: 46px;
+            margin-left: 5px;
+            margin-top: -14px;
             background-color: white;
             border-top-right-radius: 34px;
+            z-index: 3;
         }
 
         .rotate span {
@@ -32,10 +33,14 @@
         }
 
         .th-concepto {
-            width: 10px;
+            width: 14px;
             border-style: hidden;
             padding: 0px;
             font-size: 12px;
+        }
+
+        .table>tbody>tr>td {
+            padding: 2px 3px;
         }
 
         .table>tbody>tr>td {
@@ -60,7 +65,7 @@
             <h2 style="display: inline-block;margin-right: 15px;"><i class="fa fa-wrench" style="font-size:24px;"></i> Administra tus planillas</h2>
             <div class="pull-right" style="margin-top: -10px;">
                 <h3 style="display: inline-block;margin-right: 15px;">Período</h3>
-                <select class="form-control input-lg" style="font-size: 18px;width:220px;display: inline-block;">
+                <select id="cmbPeriodo" class="select2" style="margin-top:-5px;font-size: 18px;width:220px;display: inline-block;">
                     <option>C - Mayo 2017</option>
                     <option>O - Febrero</option>
                     <option>O - Enero 2017</option>
@@ -80,7 +85,7 @@
                                 <tr>
                                     <th style='max-width:400px;min-width:250px;width:auto;padding:5px 0px 5px 10px;border-right: 1px solid #dadada;'><i class="fa fa-user"></i> Empleado
                                         <input placeholder="Buscar.." style='margin-left: 4px;width: 90px;border-radius: 17px;margin-top: -2px;height: 26px;' type="text"
-                                               class="form-control input-sm" id="global_filter">
+                                               class="form-control input-sm" id="txtFiltrar">
                                     </th>
                                     <th class='th-concepto'>
                                         <div class='rotate'>
@@ -143,9 +148,7 @@
                                         </div>
                                     </th>
                                     <th class='th-concepto' style='background-color: #8a2b6c;'>
-                                        <div class='rotate' style='background-color: #8a2b6c;'>
-                                            <span style='color:white;'>PAGO NETO</span>
-                                        </div>
+                                        <img style='height: 47px;padding: 0px;float: right;position: fixed;margin-top: -41px;margin-left: 11px;z-index: 1;' src="assets\img\credit_card_terminal.jpg">
                                     </th>
                                 </tr>
                                 </thead>
@@ -232,7 +235,7 @@
             <div class="modal-body form">
                 <div class="row">
                     <div class="col-sm-12">
-                        <select class='' style='width:100%;' id='cmbDescuento'>
+                        <select class='select2' style='width:100%;' id='cmbDescuento'>
                             <option value=''>--- Seleccione para agregar un concepto ---</option>
                             <optgroup label='INGRESOS'>
                                 <option value='9'>BONIFICACIÓN</option>
@@ -416,6 +419,7 @@
             </div>
         </div>
     </div>
+
 @endsection
 
 @section('scripts')
@@ -424,8 +428,48 @@
             //initialize the javascript
             App.init();
 
+            $(".select2").select2();
             $(".md-trigger").modalEffects();
 
+            inicializarDataTable();
+
+            $(document).keyup(function (e) {
+                if (e.keyCode == 113) {
+                    $("#txtFiltrar").eq(0).focus();
+                    $("#txtFiltrar").eq(0).select();
+                }
+            });
+
+            $("#txtFiltrar").keyup(function (e) {
+                if (e.keyCode == 13 || e.keyCode == 40) {
+                    $("#tblPlanilla tr:first-child td:last-child").focus();
+                    $("#tblPlanilla tr:first-child td:last-child").click();
+                }
+            });
+
+            $("[data-toggle='tooltip']").tooltip();
+            $("input").iCheck({
+                checkboxClass: "icheckbox_square-blue checkbox",
+                radioClass: "iradio_square-blue"
+            });
+            $(".datetime").datetimepicker();
+
+            var hoy = new Date();
+            var mes = "0" + (hoy.getMonth() + 1);
+            $("#txtAnio").val(hoy.getFullYear());
+            $("#cmbMes").val(mes.slice(-2)).prop("selected", true);
+
+            introJs().setOption("showBullets", !1).start();
+
+            $('#txtFiltrar').on('keyup click', function () {
+                filtrar();
+            });
+
+        });
+
+
+
+        function inicializarDataTable() {
             var $table = $("#tblPlanilla");
 
             $table.dataTable({
@@ -448,44 +492,9 @@
                 }
             });
 
-            $("#tblPlanilla_filter").css('float', 'left');
-            $("#tblPlanilla_filter").remove();
-            $(document).keyup(function (e) {
-                if (e.keyCode == 113) {
-                    $("#tblPlanilla_filter input").eq(0).focus();
-                    $("#tblPlanilla_filter input").eq(0).select();
-                }
-            });
+            $("#tblPlanilla_filter").hide()
 
-            $("#tblPlanilla_filter input").keyup(function (e) {
-                if (e.keyCode == 13 || e.keyCode == 40) {
-                    $("#tblPlanilla tr:first-child td:eq(3)").focus();
-                    $("#tblPlanilla tr:first-child td:last-child").focus();
-                }
-            });
-
-            $("[data-toggle='tooltip']").tooltip();
-            $("input").iCheck({
-                checkboxClass: "icheckbox_square-blue checkbox",
-                radioClass: "iradio_square-blue"
-            });
-            $(".datetime").datetimepicker();
-
-            var hoy = new Date();
-            var mes = "0" + (hoy.getMonth() + 1);
-            $("#txtAnio").val(hoy.getFullYear());
-            $("#cmbMes").val(mes.slice(-2)).prop("selected", true);
-
-            introJs().setOption("showBullets", !1).start();
-
-            $('#global_filter').on('keyup click', function () {
-                filterGlobal();
-            });
-
-            $("#cmbDescuento").select2();
-
-        });
-
+        }
 
         function configurarMeses(meses) {
             $("#cmbMes").empty();
@@ -508,8 +517,8 @@
         }
 
 
-        function filterGlobal() {
-            $('#tblPlanilla').DataTable().search($('#global_filter').val()).draw();
+        function filtrar() {
+            $('#tblPlanilla').DataTable().search($('#txtFiltrar').val()).draw();
         }
 
         $('input[type=radio][name=rndTipo]').on('ifChecked', function (event) {
@@ -551,6 +560,7 @@
             $("#txtFin").val("");
         });
 
+
         function sugerirFechas() {
             var tipo = $('input[name=rndTipo]:checked').val();
             if (tipo == "O") {
@@ -575,8 +585,8 @@
             } else {
                 $("#lnkDescuento").text("AGREGAR");
             }
-            $("#global_filter").focus();
-            $("#global_filter").select();
+            $("#txtFiltrar").focus();
+            $("#txtFiltrar").select();
         }
 
         $('#tblPlanilla td').on('change', function (evt, newValue) {
