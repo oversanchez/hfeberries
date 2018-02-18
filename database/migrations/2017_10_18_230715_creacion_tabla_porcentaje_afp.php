@@ -22,8 +22,8 @@ class CreacionTablaPorcentajeAfp extends Migration
             $table->float('comision_flujo');
             $table->float('tope_prima');
 
-            $table->integer('regimen_pensionario_id')->unsigned();
-            $table->foreign('regimen_pensionario_id')->references('id')->on('regimen_pensionario')->onDelete('cascade');
+            //$table->integer('regimen_pensionario_id')->unsigned();
+            //$table->foreign('regimen_pensionario_id')->references('id')->on('regimen_pensionario')->onDelete('cascade');
             $table->timestamps();
         });
     }
