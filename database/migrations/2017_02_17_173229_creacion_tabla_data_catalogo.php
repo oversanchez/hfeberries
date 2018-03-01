@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreacionTablaDataCatalogoSunat extends Migration
+class CreacionTablaDataCatalogo extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreacionTablaDataCatalogoSunat extends Migration
      */
     public function up()
     {
-        Schema::create('data_catalogo_sunat', function (Blueprint $table) {
+        Schema::create('data_catalogo', function (Blueprint $table) {
             $table->increments('id');
             $table->string('codigo');
             $table->string('nombre');
@@ -24,8 +24,8 @@ class CreacionTablaDataCatalogoSunat extends Migration
             $table->boolean('otras_entidades')->nullable();
             $table->boolean('vigente')->default(true);
 
-            $table->integer('catalogo_sunat_id')->unsigned()->nullable();
-            $table->foreign('catalogo_sunat_id')->references('id')->on('catalogo_sunat');
+            $table->integer('catalogo_id')->unsigned()->nullable();
+            $table->foreign('catalogo_id')->references('id')->on('catalogo');
             $table->timestamps();
         });
     }
@@ -37,6 +37,6 @@ class CreacionTablaDataCatalogoSunat extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_catalogo_sunat');
+        Schema::dropIfExists('data_catalogo');
     }
 }

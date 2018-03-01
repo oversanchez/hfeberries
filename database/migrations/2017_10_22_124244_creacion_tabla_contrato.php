@@ -20,7 +20,7 @@ class CreacionTablaContrato extends Migration
             $table->float('sueldo');
 
             $table->integer('tipo_contrato_id')->unsigned()->nullable();
-            $table->foreign('tipo_contrato_id')->references('id')->on('data_catalogo_sunat');
+            $table->foreign('tipo_contrato_id')->references('id')->on('data_catalogo');
 
             $table->timestamps();
         });
