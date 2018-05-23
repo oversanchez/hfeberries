@@ -2,60 +2,7 @@
 
 @section('estilos')
     <style>
-        .rotate {
-            position: absolute;
-            -webkit-transform: rotate(-59deg);
-            -moz-transform: rotate(-59deg);
-            -ms-transform: rotate(-59deg);
-            -o-transform: rotate(-59deg);
-            transform: rotate(-59deg);
-            -webkit-transform-origin: 0 0;
-            -moz-transform-origin: 0 0;
-            -ms-transform-origin: 0 0;
-            -o-transform-origin: 0 0;
-            transform-origin: 0 0;
-            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-            border-bottom: solid thin #ded0d0;
-            height: 46px;
-            margin-left: 5px;
-            margin-top: -14px;
-            background-color: white;
-            border-top-right-radius: 34px;
-            z-index: 3;
-        }
 
-        .rotate span {
-            font-size: 13px;
-            width: 120px;
-            font-weight: 700;
-            z-index: 1;
-            margin-top: 10px;
-        }
-
-        .th-concepto {
-            width: 14px;
-            border-style: hidden;
-            padding: 0px;
-            font-size: 12px;
-        }
-
-        .table>tbody>tr>td {
-            padding: 2px 3px;
-        }
-
-        .table>tbody>tr>td {
-            padding: 2px 3px;
-        }
-
-        .center {
-            text-align: right;
-            max-width: 10px;
-            white-space: nowrap;
-        }
-
-        .table thead th span {
-            font-size: 13px;
-        }
     </style>
 @endsection
 
@@ -228,38 +175,7 @@
         </div>
     </div>
 
-    <div id="modConcepto" class="md-modal colored-header custom-width">
-        <div class="md-content">
-            <div class="modal-header">
-                <h3>Agrega un concepto a tu planilla</h3><button type="button" data-dismiss="modal" aria-hidden="true" class="close md-close">×</button></div>
-            <div class="modal-body form">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <select class='select2' style='width:100%;' id='cmbDescuento'>
-                            <option value=''>--- Seleccione para agregar un concepto ---</option>
-                            <optgroup label='INGRESOS'>
-                                <option value='9'>BONIFICACIÓN</option>
-                                <option value='10'>CANASTA</option>
-                            </optgroup>
-                            <optgroup label='DESCUENTOS'>
-                                <option style='color:red;' value='11'>PRESTAMO BCP</option>
-                                <option style='color:red;' value='12'>TELEFONO RPM</option>
-                                <option style='color:red;' value='13'>COMEDOR</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <div class="row">
-                    <div class="col-md-12">
-                        <button type="button" data-dismiss="modal" class="btn btn-success pull-left">Crear un nuevo concepto</button>
-                        <button onclick='aplicarDescuento()' type="button" data-dismiss="modal" class="btn btn-primary md-close">Agregar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <div id="modPlanilla" class="md-modal colored-header md-effect-9" style='width:600px;'>
         <div class="md-content">
@@ -428,6 +344,7 @@
             //initialize the javascript
             App.init();
 
+            $("#modSistema").modal('show');
             $(".select2").select2();
             $(".md-trigger").modalEffects();
 

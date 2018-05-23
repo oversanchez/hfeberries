@@ -19,6 +19,9 @@ class CreacionTablaUserInfo extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
 
+            $table->integer('grupo_id')->unsigned()->nullable();
+            $table->foreign('grupo_id')->references('id')->on('grupo')->onDelete('set null');
+
             $table->enum('tipo',['AD','TR','AL','PA']);
             $table->string('clave');
 

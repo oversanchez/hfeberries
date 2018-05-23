@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/img/favicon.png">
-    <title>Adriana</title>
+    <title>HFE Berries</title>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800" rel="stylesheet"
           type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Raleway:300,200,100" rel="stylesheet" type="text/css">
@@ -34,11 +34,11 @@
         <div class="navbar-header">
             <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span
                         class="fa fa-gear"></span></button>
-            <a href="#" class="navbar-brand"><span>Adriana</span></a>
+            <a href="#" class="navbar-brand"><span>HFE Berries</span></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="inicio.html"><i class="fa fa-home"></i> Inicio
+                <li><a href="#" data-modal="modSistemas" class="btn-flat md-trigger"><i class="fa fa-windows"></i> Aplicaciones
                         <span class="badge badge-success" style="position:absolute;top:2px;right:-5px;">8</span></a>
                 </li>
                 <li><a href="/empleado"><i class="fa fa-user"></i> Empleados</a></li>
@@ -165,6 +165,20 @@
 </div>
 <div id="cl-wrapper">
     @yield('cuerpo')
+
+    <div id="modSistemas" class="md-modal colored-header md-effect-9">
+        <div class="md-content">
+            <div class="modal-body form">
+                <div class="row">
+                    <div class="col-sm-12">
+                        @foreach ($sistemas as $sistema)
+                            <a href="inicio?token={{ $token }}&sistema_id={{ $sistema->id }}" class="btn btn-primary btn-block"><i class="fa fa-windows"></i> {{ $sistema->nombre }}</a>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="md-overlay"></div>
 </div>
 

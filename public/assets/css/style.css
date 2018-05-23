@@ -261,7 +261,7 @@ pre {
 
 .navbar {
     border: 0;
-    background-color: #8a2b6c;
+    background-color: #2494f2;
     color: #fff;
     padding-left: 10px;
     padding-right: 25px
@@ -288,7 +288,7 @@ pre {
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus {
-    background-color: #723560;
+    background-color: #36a3ff;
     color: #fff
 }
 
@@ -550,14 +550,14 @@ pre {
 .navbar-default .navbar-nav>.open>a,
 .navbar-default .navbar-nav>.open>a:hover,
 .navbar-nav>.open>a:focus {
-    background-color: #723560;
+    background-color: #36a3ff;
     color: #fff
 }
 
 .navbar-default .navbar-nav>.open>a,
 .navbar-default .navbar-nav>.open>a:hover,
 .navbar-default .navbar-nav>.open>a:focus {
-    background-color: #723560;
+    background-color: #36a3ff;
     color: #fff
 }
 
@@ -2496,7 +2496,7 @@ table.information>tbody>tr>td {
     line-height: inherit;
     font-weight: 500;
     /*
-    background-color:#8a2b6c;
+    background-color:#2494f2;
     color:white;
     */
 }
