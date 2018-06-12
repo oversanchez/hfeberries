@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreacionTablaOpcion extends Migration
+class CreacionTablaDefecto extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,11 @@ class CreacionTablaOpcion extends Migration
      */
     public function up()
     {
-        Schema::create('opcion', function (Blueprint $table) {
+        Schema::create('defecto', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('codigo','4');
-            $table->string('nombre','20');
-            $table->string('descripcion','40');
-            $table->string('url');
+            $table->string('nombre');
+            $table->string('tipo');
             $table->boolean('vigencia')->default(true);
-            $table->integer('nivel');
-
-            //0-1-2-3
             $table->timestamps();
         });
     }
@@ -34,6 +29,6 @@ class CreacionTablaOpcion extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('opcion');
+        Schema::dropIfExists('defecto');
     }
 }

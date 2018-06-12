@@ -16,7 +16,7 @@ class Usuario_Seeder extends Seeder
         ]);
 
         DB::table('user_info')->insert([
-            ['user_id'=> 1,'clave'=>bcrypt('qweasdzxc'),'tipo'=>'AD','grupo_id'=>1,'activo'=>true],
+            ['user_id'=> 1,'clave'=>bcrypt('qweasdzxc'),'tipo'=>'AD','grupo_id'=>2,'activo'=>true],
         ]);
     }
 }

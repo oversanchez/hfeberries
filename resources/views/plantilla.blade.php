@@ -24,6 +24,10 @@
     {!! HTML::style('assets/css/style.css') !!}
     {!! HTML::style('assets/lib/jquery.select2/select2.css') !!}
 
+    {!! HTML::style('assets/lib/jquery.gritter/css/jquery.gritter.css') !!}
+    {!! HTML::style('assets/lib/bootstrap.switch/css/bootstrap3/bootstrap-switch.css') !!}
+    {!! HTML::style('assets/lib/bootstrap.slider/css/bootstrap-slider.css') !!}
+
     @yield('estilos')
 </head>
 
@@ -39,56 +43,30 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#" data-modal="modSistemas" class="btn-flat md-trigger"><i class="fa fa-windows"></i> Aplicaciones
-                        <span class="badge badge-success" style="position:absolute;top:2px;right:-5px;">8</span></a>
+                        <span class="badge badge-success" style="position:absolute;top:2px;right:-5px;">{{$sistemas->count()}}</span></a>
                 </li>
-                <li><a href="/empleado"><i class="fa fa-user"></i> Empleados</a></li>
-                <li><a href="/planilla"><i class="fa fa-calculator"></i> Planillas</a></li>
-                <li><a href="/concepto"><i class="fa fa-user"></i> Conceptos</a></li>
-                <li class="dropdown">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                        <i class="fa fa-area-chart"></i> Reportes <b class="caret"></b>
-                        <span class="badge badge-info" style="position:absolute;top:2px;right:-5px;z-index: 1;">8</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="dropdown-submenu"><a href="#">Sub menu</a>
+                @foreach ($opciones_sup as $opcion_sup)
+                    <?php $subItems = ""; ?>
+                    @foreach ($opciones as $sub_opcion)
+                        @if($sub_opcion->opcion_padre_id == $opcion_sup->id)
+                            <?php
+                                $subItems .= "<li><a href=''>{$sub_opcion->nombre}</a></li>";
+                            ?>
+                        @endif
+                    @endforeach
+                    @if($subItems == "")
+                        <li><a href="{{$sub_opcion->url}}?token={{ $token }}&sistema_id={{ $sistema_id }}">{{$opcion_sup->nombre}}</a></li>
+                    @else
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{$opcion_sup->nombre}}
+                                <b class="caret"></b>
+                            </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
+                                <?php echo $subItems; ?>
                             </ul>
                         </li>
-                    </ul>
-                </li>
-                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Large menu <b
-                                class="caret"></b></a>
-                    <ul class="dropdown-menu col-menu-2">
-                        <li class="col-sm-6 no-padding">
-                            <ul>
-                                <li class="dropdown-header"><i class="fa fa-group"></i>Users</li>
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="dropdown-header"><i class="fa fa-gear"></i>Config</li>
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="col-sm-6 no-padding">
-                            <ul>
-                                <li class="dropdown-header"><i class="fa fa-legal"></i>Sales</li>
-                                <li><a href="#">New sale</a></li>
-                                <li><a href="#">Register a product</a></li>
-                                <li><a href="#">Register a client</a></li>
-                                <li><a href="#">Month sales</a></li>
-                                <li><a href="#">Delivered orders</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+                    @endif
+                @endforeach
             </ul>
             <ul class="nav navbar-nav navbar-right user-nav">
                 <li class="dropdown profile_menu"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><img
@@ -166,13 +144,14 @@
 <div id="cl-wrapper">
     @yield('cuerpo')
 
-    <div id="modSistemas" class="md-modal colored-header md-effect-9">
+    <div id="modSistemas" class="md-modal colored-header md-effect-9" style="width: 25%;">
         <div class="md-content">
             <div class="modal-body form">
                 <div class="row">
                     <div class="col-sm-12">
+                        <a href="inicio?token={{ $token }}" class="btn btn-primary btn-block" style="font-size: 14px;font-weight: 600;">Inicio</a>
                         @foreach ($sistemas as $sistema)
-                            <a href="inicio?token={{ $token }}&sistema_id={{ $sistema->id }}" class="btn btn-primary btn-block"><i class="fa fa-windows"></i> {{ $sistema->nombre }}</a>
+                            <a href="inicio?token={{ $token }}&sistema_id={{ $sistema->id }}" class="btn btn-primary btn-block" style="font-size: 14px;font-weight: 600;"> {{ $sistema->nombre }}</a>
                         @endforeach
                     </div>
                 </div>
@@ -197,7 +176,22 @@
 {!! HTML::script('assets/lib/editable-table-master/mindmup-editabletable.js') !!}
 {!! HTML::script('assets/lib/editable-table-master/numeric-input-example.js') !!}
 {!! HTML::script('assets/lib/jquery.select2/select2.min.js') !!}
+{!! HTML::script('assets/lib/skycons/skycons.js') !!}
+{!! HTML::script('assets/lib/jquery.sparkline/jquery.sparkline.min.js') !!}
+{!! HTML::script('assets/lib/jquery.easypiechart/jquery.easypiechart.js') !!}
+{!! HTML::script('assets/lib/jquery.flot/jquery.flot.js') !!}
+{!! HTML::script('assets/lib/jquery.flot/jquery.flot.pie.js') !!}
+{!! HTML::script('assets/lib/jquery.flot/jquery.flot.resize.js') !!}
+{!! HTML::script('assets/lib/jquery-ui/jquery-ui.min.js') !!}
 
+<script>
+    $(document).ready(function () {
+        //initialize the javascript
+        App.init();
+        App.dashboard();
+        $(".md-trigger").modalEffects();
+    });
+</script>
 
 @yield('scripts')
 

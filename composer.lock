@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c93cb4e8143297aee91340c5fe65d5de",
+    "content-hash": "b1be9e815d1edaac54685b3e5c5f9e5d",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1310,16 +1310,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.8.12",
+            "version": "v0.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "1502354ebc70d59d8e3a87c325b0eb78a79da25b"
+                "reference": "b193cd020e8c6b66cea6457826ae005e94e6d2c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/1502354ebc70d59d8e3a87c325b0eb78a79da25b",
-                "reference": "1502354ebc70d59d8e3a87c325b0eb78a79da25b",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/b193cd020e8c6b66cea6457826ae005e94e6d2c0",
+                "reference": "b193cd020e8c6b66cea6457826ae005e94e6d2c0",
                 "shasum": ""
             },
             "require": {
@@ -1379,7 +1379,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2017-10-14T17:14:13+00:00"
+            "time": "2017-07-29T19:30:02+00:00"
         },
         {
             "name": "ramsey/uuid",
